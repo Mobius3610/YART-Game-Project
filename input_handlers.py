@@ -5,7 +5,7 @@
 from __future__ import annotations
 
 try: 
-	from typing import Callable, Optional, Tuple, TYPE_CHECKING
+	from typing import Callable, Optional, Tuple, TYPE_CHECKING, Union
 	import tcod.event
 	import actions
 	from actions import Action, BumpAction, WaitAction, PickupAction
