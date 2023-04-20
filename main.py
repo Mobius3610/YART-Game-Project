@@ -14,12 +14,9 @@ Description: I am following the Python3 r/roguelikedev tutorial to get familiar 
 
 try: 
 	import tcod
-	from engine import Engine
-	import entity_factories
 	import exceptions
 	import input_handlers
-	from procgen import generate_dungeon
-	import copy
+	import setup_game
 	import traceback
 	import sys
 	import random
@@ -37,38 +34,9 @@ def main() -> None:
 	screen_width = 80
 	screen_hight = 50
 
-	map_width = 80
-	map_height = 43
-
-	room_max_size = 10
-	room_min_size = 6
-	max_rooms = 30
-
-	max_monsters_per_room = 2
-	max_items_per_room = 2
-
 	tileset = tcod.tileset.load_tilesheet("yartTiles.png", 32, 8, tcod.tileset.CHARMAP_TCOD)
 	
-	player = copy.deepcopy(entity_factories.player)
-
-	engine = Engine(player = player)
-
-	engine.game_map = generate_dungeon(
-		max_rooms=max_rooms,
-		room_min_size=room_min_size,
-		room_max_size=room_max_size,
-		map_width=map_width,
-		map_height=map_height,
-		max_monsters_per_room=max_monsters_per_room,
-		max_items_per_room=max_items_per_room,
-		engine=engine, 
-		)
-
-	engine.update_fov()
-
-	engine.message_log.add_message("Hello and welcome, Adventurer, to yet another dungeon!", color.welcome_text)
-
-	handler: input_handlers.BaseEventHandler = input_handlers.MainGameEventHandler(engine)
+	handler: input_handlers.BaseEventHandler = setup_game.MainMenu()	
 
 	with tcod.context.new_terminal(
 		screen_width,
@@ -88,17 +56,17 @@ def main() -> None:
 						for event in tcod.event.wait():
 							context.convert_event(event)
 							handler = handler.handle_events(event)
-						except Exception: # handle expectations in game
-							traceback.print_exc() # print error to stderr
-							# Then print the error in the message log
-							if isinstance(handler, input_handlers.EventHandler):
-								handler.engine.message_log.add_message(traceback.format_exc(), color.error)
-					except exceptions.QuitWithoutSaving: 
-						raise
-					except SystemExit: # save and quit
-						raise
-					except BaseException: 
-						raise
+					except Exception: # handle expectations in game
+						traceback.print_exc() # print error to stderr
+						# Then print the error in the message log
+						if isinstance(handler, input_handlers.EventHandler):
+							handler.engine.message_log.add_message(traceback.format_exc(), color.error)
+			except exceptions.QuitWithoutSaving: 
+				raise
+			except SystemExit: # save and quit
+				raise
+			except BaseException: 
+				raise
 
 
 if __name__ == "__main__":

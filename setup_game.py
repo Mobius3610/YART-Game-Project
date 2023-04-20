@@ -54,7 +54,7 @@ class MainMenu(input_handlers.BaseEventHandler):
 		console.draw_semigraphics(background_image, 0, 0)
 
 		console.print(
-			cosole.width // 2,
+			console.width // 2,
 			console.height // 2 - 4,
 			"By (Your name here)",
 			fg=color.menu_title,
@@ -70,11 +70,12 @@ class MainMenu(input_handlers.BaseEventHandler):
 				console.width // 2,
 				console.height // 2 - 2 + i, 
 				text.ljust(menu_width),
-				fg.color.menu_title, 
-				bg.color.black,
+				fg=color.menu_title, 
+				bg=color.black,
 				alignment=tcod.CENTER,
 				bg_blend=tcod.BKGND_ALPHA(64),
 			)
+
 	def ev_keydown(
 		self, event: tcod.event.KeyDown
 	) -> Optional[input_handlers.BaseEventHandler]: 
