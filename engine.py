@@ -13,6 +13,8 @@ try:
 	from message_log import MessageLog
 	from render_functions import render_bar, render_names_at_mouse_location
 	import exceptions
+	import lzma
+	import pickle
 
 	from colorama import Fore, Back, Style
 
@@ -68,5 +70,9 @@ class Engine:
 		# 	if self.game_map.visible[entity.x, entity.y]:
 		# 		console.print(entity.x, entity.y, entity.char, fg=entity.color)
 
-
+	def save_as(self, filename: str) -> None: 
+		# save this Engine instance as a compressed file. 
+		save_data = lzma.compress(pickle.dumps(self))
+		with open(filename, "wb") as f: 
+			f.write(save_data)
 

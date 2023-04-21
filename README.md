@@ -17,3 +17,6 @@ I hope to write a fairly competent game and learn from this tutorial on how to w
 - random
 - color
 - colorama
+- lzma
+- pickle
+- traceback
