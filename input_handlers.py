@@ -5,7 +5,7 @@
 from __future__ import annotations
 
 try:
-	iport os
+	import os
 	from typing import Callable, Optional, Tuple, TYPE_CHECKING, Union
 	import tcod.event
 	import actions
