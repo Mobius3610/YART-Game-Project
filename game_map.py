@@ -31,6 +31,7 @@ class GameMap:
 		self.visible = np.full((width, height), fill_value=False, order="F") # Tiles in LOS 
 		self.explored = np.full((width, height), fill_value=False, order="F") # Tiles 'in the player character's memory'
 
+		self.downstairs_location = (0, 0)
 		# self.tiles[30:33, 22] = tile_types.wall #hard coded wall
 
 	@property
