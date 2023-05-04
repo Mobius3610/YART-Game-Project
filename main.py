@@ -25,7 +25,7 @@ try:
 	import colorama
 	from colorama import Fore, Back, Style
 except:	
-	print(Fore.RED + "ERROR: Could not import all necessary libraries.")
+	print(Fore.RED + "ERROR: Could not import all necessary libraries (main).")
 
 def save_game(handler: input_handlers.BaseEventHandler, filename: str) -> None:
 	# If current event handler has an active Engine then save it. 
