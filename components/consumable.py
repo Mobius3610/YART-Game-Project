@@ -95,9 +95,9 @@ class LightningDamageConsumable(Consumable):
 			if actor is not consumer and self.parent.gamemap.visible[actor.x, actor.y]:
 				distance = consumer.distance(actor.x, actor.y)
 
-			if distance < closest_distance: 
-				target = actor
-				closest_distance = distance
+				if distance < closest_distance: 
+					target = actor
+					closest_distance = distance
 
 		if target: 
 			self.engine.message_log.add_message(

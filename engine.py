@@ -11,7 +11,7 @@ try:
 	from tcod.console import Console
 	from tcod.map import compute_fov
 	from message_log import MessageLog
-	from render_functions import render_bar, render_names_at_mouse_location
+	import render_functions
 	import exceptions
 	import lzma
 	import pickle
@@ -57,15 +57,22 @@ class Engine:
 
 		self.message_log.render(console=console, x=21, y=45, width=40, height=5)
 
-		render_bar(
+		render_functions.render_bar(
 			console=console,
 			current_value=self.player.fighter.hp,
 			maximum_value=self.player.fighter.max_hp,
 			total_width=20,
 		)
 
-		render_names_at_mouse_location(console=console, x=21, y=44, engine=self)
+		render_functions.render_dungeon_level(
+			console=console,
+			dungeon_level=self.game_world.current_floor,
+			location=(0,47),
+		)
 
+		render_functions.render_names_at_mouse_location(
+			console=console, x=21, y=44, engine=self
+		)
 		# for entity in self.entities:
 		# 	# only print out entities that are in FOV
 		# 	if self.game_map.visible[entity.x, entity.y]:
