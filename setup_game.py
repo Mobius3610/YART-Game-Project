@@ -45,6 +45,21 @@ def new_game() -> Engine:
 	engine.game_world.generate_floor()
 	engine.update_fov()
 	engine.message_log.add_message("Hello and welcome brave adventurer, beware the depths of the dungeon!", color.welcome_text)
+	
+	#Spwaning in player with gear
+	dagger = copy.deepcopy(entity_factories.dagger)
+	gambeson = copy.deepcopy(entity_factories.gambeson)
+
+	dagger.parent = player.inventory
+	gambeson.parent = player.inventory
+
+	player.inventory.items.append(dagger)
+	player.equipment.toggle_equip(dagger, add_message=False)
+
+	player.inventory.items.append(gambeson)
+	player.equipment.toggle_equip(gambeson, add_message=False)
+
+
 	return engine
 
 def load_game(filename: str) -> Engine:
