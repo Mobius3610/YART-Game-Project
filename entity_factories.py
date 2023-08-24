@@ -79,6 +79,8 @@ fireball_scroll = Item(
 	consumable=consumable.FireballDamageConsumable(damage=12, radius=3), 
 )
 
+
+### Weapons
 dagger = Item(
 	char="/",
 	color=(0, 191, 255),
@@ -93,18 +95,53 @@ sword = Item(
 	equippable=equippable.Sword(),
 )
 
+### Armor
+tunic = Item(
+	char="[",
+	color=(190, 170, 169),
+	name="Tunic",
+	equippable=equippable.Sword(),
+)
+
 gambeson = Item(
 	char="[",
-	color=(139, 69, 19),
+	color=(180, 170, 130),
 	name="Gambeson",
 	equippable=equippable.Gambeson(),
 )
 
 chain_mail = Item(
-	char="/",
-	color=(139, 69, 19),
+	char="[",
+	color=(200, 245, 240),
 	name="Chain Mail",
 	equippable=equippable.ChainMail(),
 )
 
+plate_mail = Item(
+	char="[", 
+	color=(200, 255, 230),
+	name="Plate Mail",
+	equippable=equippable.PlateMail(),
+)
+
+brigandine = Item(
+	char="[",
+	color=(139, 16, 69),
+	name="Brigandine",
+	equippable=equippable.Brigandine(),
+)
+
+steel_plate = Item(
+	char="[", 
+	color=(200, 255, 230),
+	name="Steel Plate",
+	equippable=equippable.SteelPlate(),
+)
+
+leather_armor = Item(
+	char="[", 
+	color=(130, 100, 120),
+	name="Leather Armor",
+	equippable=equippable.LeatherArmor(),
+)
 
