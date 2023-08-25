@@ -35,7 +35,7 @@ class Sword(Equippable):
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
 
 ### Armor
-class Tunnic(Equippable):
+class Tunic(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=0)
 

@@ -100,7 +100,7 @@ tunic = Item(
 	char="[",
 	color=(190, 170, 169),
 	name="Tunic",
-	equippable=equippable.Sword(),
+	equippable=equippable.Tunic(),
 )
 
 gambeson = Item(
