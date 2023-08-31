@@ -48,16 +48,16 @@ def new_game() -> Engine:
 	
 	#Spwaning in player with gear
 	dagger = copy.deepcopy(entity_factories.dagger)
-	gambeson = copy.deepcopy(entity_factories.gambeson)
+	tunic = copy.deepcopy(entity_factories.tunic)
 
 	dagger.parent = player.inventory
-	gambeson.parent = player.inventory
+	tunic.parent = player.inventory
 
 	player.inventory.items.append(dagger)
 	player.equipment.toggle_equip(dagger, add_message=False)
 
-	player.inventory.items.append(gambeson)
-	player.equipment.toggle_equip(gambeson, add_message=False)
+	player.inventory.items.append(tunic)
+	player.equipment.toggle_equip(tunic, add_message=False)
 
 
 	return engine

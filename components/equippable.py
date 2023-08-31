@@ -25,6 +25,7 @@ class Equippable(BaseComponent):
 		self.power_bonus = power_bonus
 		self.defense_bonus = defense_bonus
 
+### Weapons 
 class Dagger(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=200)
@@ -33,6 +34,11 @@ class Sword(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
 
+### Armor
+class Tunic(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=0)
+
 class Gambeson(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=2)
@@ -40,3 +46,20 @@ class Gambeson(Equippable):
 class ChainMail(Equippable):
 	def __init__(self) -> None:
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=4)
+
+class PlateMail(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=6)
+
+class Brigandine(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=8)
+
+class SteelPlate(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=10)
+
+class LeatherArmor(Equippable): 
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=0)
+
