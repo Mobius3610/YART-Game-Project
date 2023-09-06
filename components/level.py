@@ -51,13 +51,15 @@ class Level(BaseComponent):
 	def increase_max_hp(self, amount: int = 20) -> None:
 		self.parent.fighter.max_hp += amount
 		self.parent.fighter.hp += amount
+		self.engine.message_log.add_message("You feel more robust!")
+		self.increase_level()
 
 	def increase_power(self, amount: int = 1) -> None:
 		self.parent.fighter.base_power += amount
-		self.engine.message_log.add_message("You feel stronger!")
+		self.engine.message_log.add_message("You feel more powerful!")
 		self.increase_level()
 
 	def increase_defense(self, amount: int = 1) -> None: 
 		self.parent.fighter.base_defense += amount
-		self.engine.message_log.add_message("Your combat awareness has risen")
+		self.engine.message_log.add_message("Your combat awareness has risen!")
 		self.increase_level()

@@ -82,7 +82,7 @@ fireball_scroll = Item(
 
 ### Weapons
 dagger = Item(
-	char="/",
+	char="-",
 	color=(0, 191, 255),
 	name="Dagger",
 	equippable=equippable.Dagger(),
@@ -93,6 +93,41 @@ sword = Item(
 	color=(0, 191, 255),
 	name="Sword",
 	equippable=equippable.Sword(),
+)
+
+spear = Item(
+	char="|",
+	color=(0, 191, 255),
+	name="Spear",
+	equippable=equippable.Spear(),
+)
+
+bec_de_corbin = Item(
+	char="+",
+	color=(0, 191, 255),
+	name="Bec De Corbin",
+	equippable=equippable.BecDeCorbin(),
+)
+
+dane_axe = Item(
+	char="P",
+	color=(0, 191, 255),
+	name="Dane Axe",
+	equippable=equippable.DaneAxe(),
+)
+
+quarter_staff = Item(
+	char="/",
+	color=(0, 191, 255),
+	name="Quarter Staff",
+	equippable=equippable.QuarterStaff(),
+)
+
+greatsword = Item(
+	char="/",
+	color=(0, 191, 255),
+	name="Great Sword",
+	equippable=equippable.Greatsword(),
 )
 
 ### Armor

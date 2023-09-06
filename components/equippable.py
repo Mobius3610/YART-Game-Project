@@ -28,11 +28,53 @@ class Equippable(BaseComponent):
 ### Weapons 
 class Dagger(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=200)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=2)
 
 class Sword(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class Spear(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class BecDeCorbin(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
+
+class DaneAxe(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
+
+class QuarterStaff(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=3)
+
+class Greatsword(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6)
+
+
+
+""" # Legedary 
+class Excalibur(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class Moonlight(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class PowerPole(Equippable): #Change name to Chinese before implementation#
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class Mjolnir(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+"""
+
 
 ### Armor
 class Tunic(Equippable):
