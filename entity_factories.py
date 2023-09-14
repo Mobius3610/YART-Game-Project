@@ -18,22 +18,22 @@ from entity import Actor, Item
 
 player = Actor(
 	char="@",
-	color=(255, 255, 255),
+	color=(0, 0, 0),
 	name="Player",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=30, base_defense=2, base_power=5),
+	fighter=Fighter(hp=30, base_defense=0, base_power=5),
 	inventory=Inventory(capacity=26),
 	level=Level(level_up_base=200),
 )
 
 orc = Actor(
-	char="@",
-	color=(63, 127, 63),
+	char="o",
+	color=(85, 255, 125), #(63, 127, 63)
 	name="Orc",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=10, base_defense=0, base_power=3),
+	fighter=Fighter(hp=10, base_defense=0, base_power=2),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=35),
 )
@@ -53,7 +53,7 @@ troll = Actor(
 
 confusion_scroll = Item(
 	char="~",
-	color=(207, 63, 255),
+	color=(200, 100, 255),
 	name="Confusion Scroll",
 	consumable=consumable.ConfusionConsumable(number_of_turns=10),
 )
@@ -118,7 +118,7 @@ dane_axe = Item(
 
 quarter_staff = Item(
 	char="/",
-	color=(0, 191, 255),
+	color=(200, 100, 20),
 	name="Quarter Staff",
 	equippable=equippable.QuarterStaff(),
 )
@@ -128,6 +128,51 @@ greatsword = Item(
 	color=(0, 191, 255),
 	name="Great Sword",
 	equippable=equippable.Greatsword(),
+)
+
+### Legedary Weapons
+# Sting, Excalibur, Moonlight, RuYi, Mjolnir, Reaper
+ 
+sting = Item(
+	char="/",
+	color=(0, 191, 255),
+	name="Sting",
+	equippable=equippable.Sting(),
+)
+
+excalibur = Item(
+	char="/",
+	color=(128, 200, 255),
+	name="Excalibur",
+	equippable=equippable.Excalibur(),
+)
+
+moonlight = Item(
+	char="/",
+	color=(0, 191, 255),
+	name="Moonlight Greatsword",
+	equippable=equippable.Moonlight(),
+)
+
+ruyi = Item(
+	char="|",
+	color=(255, 70, 70),
+	name="RuYi Staff",
+	equippable=equippable.RuYi(),
+)
+
+mjolnir = Item(
+	char="+",
+	color=(0, 191, 255),
+	name="Mjolnir",
+	equippable=equippable.Mjolnir(),
+)
+
+reaper = Item(
+	char="?",
+	color=(0, 191, 255),
+	name="Death Scyth",
+	equippable=equippable.Reaper(),
 )
 
 ### Armor
@@ -175,7 +220,7 @@ steel_plate = Item(
 
 leather_armor = Item(
 	char="[", 
-	color=(130, 100, 120),
+	color=(200, 100, 20),
 	name="Leather Armor",
 	equippable=equippable.LeatherArmor(),
 )

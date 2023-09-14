@@ -54,26 +54,71 @@ class Greatsword(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6)
 
+'''
+# Ranged Weapondry
 
+class Sling(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=1)
 
-""" # Legedary 
-class Excalibur(Equippable):
+class Crossbow(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class Bow(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
+
+class Atlatl(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6)
+
+'''
+
+# Legedary Melee Weapondry
+class Sting(Equippable): 
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=10)
+
+class Excalibur(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
 
 class Moonlight(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=30)
 
-class PowerPole(Equippable): #Change name to Chinese before implementation#
+class RuYi(Equippable): 
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=15)
 
 class Mjolnir(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
 
-"""
+class Reaper(Equippable): 
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=100)
+
+'''
+# Legedary Ranged Weapondry 
+class BowofLegedaryStatus(Equippable): #Look for named mythical Bow#
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=15)
+
+class Musket(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
+
+class Blunderbus(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=30)
+
+class GiantSlayer(Equippable): #Sling weapon# 
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=10)  
+
+'''
 
 
 ### Armor
