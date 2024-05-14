@@ -38,24 +38,28 @@ class Consumable(BaseComponent):
 		if isinstance(inventory, components.inventory.Inventory):
 			inventory.items.remove(entity)
 
-class ConfusionConsumable(Consumable):
-	def __init__(self, number_of_turns: int):
+class ConfusionConsumable(Consumable): 
+# Need to impliment range and radius to the consumable
+# calling the function -> consumable=consumable.ConfusionConsumable(number_of_turns=X, maximum_range=Y, radius=Z),
+	def __init__(self, number_of_turns: int,): # maximum_range: int, radius: int
 		self.number_of_turns = number_of_turns
+		#self.maximum_range = maximum_range
+		#self.radius = radius
 
 	def get_action(self, consumer: Actor) -> SingleRangedAttackHandler:
 		self.engine.message_log.add_message("Select a target location.", color.needs_target)
 		return SingleRangedAttackHandler(self.engine, callback=lambda xy: actions.ItemAction(consumer, self.parent, xy),)
-
+	
 	def activate(self, action: actions.ItemAction) -> None:
 		consumer = action.entity
-		target = action.target_actor
+		target = action.target_xy
 
-		if not self.engine.game_map.visible[action.target_xy]: 
-			raise Impossible("You cannot target an area that you cannot see.")
+		if not self.engine.game_map.visible[target_xy]:
+			raise Impossible("You cannot target an area that you cannot see")
 		if not target:
 			raise Impossible("You must select a target.")
 		if target is consumer: 
-			raise Impossible("You really shouldn't confuse yourself...") # might want to get rid of this... >:)
+			raise Impossible("You really shouldn't target yourself...") # might want to get rid of this... >:)
 
 		self.engine.message_log.add_message(
 			f"The eyes of the {target.name} look vacant, as it starts to stumble around!",
@@ -81,7 +85,7 @@ class HealingConsumable(Consumable):
 		else:
 			raise Impossible(f"You are already quite healthy.")
 
-class LightningDamageConsumable(Consumable): 
+class LightningDamageConsumable(Consumable): # Change to 'DirectDamageConsumable'
 	def __init__(self, damage: int, maximum_range: int):
 		self.damage = damage
 		self.maximum_range = maximum_range
@@ -134,3 +138,20 @@ class FireballDamageConsumable(Consumable):
 		if not targets_hit:
 			raise Impossible("There are no targets in the target area of effect")
 		self.consume()
+
+# def activate(self, action: actions.ItemAction) -> None:
+	# 	target_xy = action.target_xy
+
+	# 	if not self.engine.game_map.visible[target_xy]:
+	# 		raise Impossible("You cannot target an area that you cannot see")
+
+	# 	targets_hit = False
+	# 	for actor in self.engine.game_map.actors: 
+	# 		if actor.distance(*target_xy) <= self.radius:
+	# 			self.engine.message_log.add_message(f"The {actor.name} is engulfed in flame, taking {self.damage} damage")
+	# 			actor.fighter.take_damage(self.damage)
+	# 			targets_hit = True
+
+	# 	if not targets_hit:
+	# 		raise Impossible("There are no targets in the target area of effect")
+	# 	self.consume()

@@ -26,11 +26,15 @@ class Equippable(BaseComponent):
 		self.defense_bonus = defense_bonus
 
 ### Weapons 
+class LeatherWhip(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=1)
+
 class Dagger(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=2)
 
-class Sword(Equippable):
+class ArmingSword(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
 
@@ -38,59 +42,44 @@ class Spear(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
 
-class BecDeCorbin(Equippable):
+class Poleaxe(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
 
-class DaneAxe(Equippable):
+class BattleAxe(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
 
-class QuarterStaff(Equippable):
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=3)
-
-class Greatsword(Equippable):
+class Claymore(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6)
 
 '''
 # Ranged Weapondry
-
 class Sling(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=1)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=1, range=5)
 
 class Crossbow(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4, range=8)
 
-class Bow(Equippable):
+class Flintlock(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=5)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20, range=20)
 
-class Atlatl(Equippable):
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6)
+class Blunderbuss dmg=30, range=5
 
 '''
 
 # Legedary Melee Weapondry
-class Sting(Equippable): 
+class VampireKiller(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=10)
+		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
 
 class Excalibur(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
-
-class Moonlight(Equippable):
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=30)
-
-class RuYi(Equippable): 
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=15)
 
 class Mjolnir(Equippable):
 	def __init__(self) -> None: 
@@ -98,27 +87,7 @@ class Mjolnir(Equippable):
 
 class Reaper(Equippable): 
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=100)
-
-'''
-# Legedary Ranged Weapondry 
-class BowofLegedaryStatus(Equippable): #Look for named mythical Bow#
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=15)
-
-class Musket(Equippable):
-	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=20)
-
-class Blunderbus(Equippable):
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=30)
-
-class GiantSlayer(Equippable): #Sling weapon# 
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=10)  
-
-'''
 
 
 ### Armor
@@ -128,25 +97,21 @@ class Tunic(Equippable):
 
 class Gambeson(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=2)
-
-class ChainMail(Equippable):
-	def __init__(self) -> None:
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=4)
-
-class PlateMail(Equippable):
-	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=6)
 
 class Brigandine(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=8)
 
-class SteelPlate(Equippable):
+class Plate(Equippable):
 	def __init__(self) -> None: 
 		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=10)
 
 class LeatherArmor(Equippable): 
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=0)
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=2)
 
+### Unique Armor
+class HunterGarb(Equippable):
+	def __init__(self) -> None: 
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=12)

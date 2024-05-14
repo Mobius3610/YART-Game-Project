@@ -11,6 +11,8 @@ from components.inventory import Inventory
 from components.level import Level
 from entity import Actor, Item
 
+from Item_Descriptions import description
+
 # player = Entity(char="@", color=(255, 255, 255), name="Player", blocks_movement=True)
 
 # orc = Entity(char="o", color=(63, 127, 63), name="Orc", blocks_movement=True)
@@ -27,57 +29,187 @@ player = Actor(
 	level=Level(level_up_base=200),
 )
 
-orc = Actor(
-	char="o",
+corpse = Actor(
+	char="C",
 	color=(85, 255, 125), #(63, 127, 63)
-	name="Orc",
+	name="Rotting Corpse",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=10, base_defense=0, base_power=2),
+	fighter=Fighter(hp=5, base_defense=0, base_power=2),
 	inventory=Inventory(capacity=0),
-	level=Level(xp_given=35),
+	level=Level(xp_given=15),
 )
 
-troll = Actor(
-	char="T",
+skeleton = Actor(
+	char="S",
 	color=(0, 127, 0),
-	name="Troll",
+	name="Skeleton",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=16, base_defense=1, base_power=4),
+	fighter=Fighter(hp=10, base_defense=1, base_power=3),
 	inventory=Inventory(capacity=0),
-	level=Level(xp_given=100),
+	level=Level(xp_given=20),
 )
 
-## Items that spawn on the gound of the dungeon
+ghoul = Actor(
+	char="U",
+	color=(0, 127, 0),
+	name="Unfortunate experiment", # might want to find a better name.
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=20, base_defense=5, base_power=4),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=45),
+)
 
-confusion_scroll = Item(
-	char="~",
-	color=(200, 100, 255),
-	name="Confusion Scroll",
-	consumable=consumable.ConfusionConsumable(number_of_turns=10),
+enchanted_armor = Actor(
+	char="E",
+	color=(0, 127, 0),
+	name="Enchanted Armor",
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=5, base_defense=10, base_power=3),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=80),
+)
+
+cultist = Actor(
+	char="C",
+	color=(200, 16, 16),
+	name="Cultist",
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=10, base_defense=8, base_power=10),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=10),
+)
+
+lesser_vampire = Actor(
+	char="L",
+	color=(256, 24, 24),
+	name="Vampire bloodling",
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=50, base_defense=10, base_power=10),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=10),
+)
+
+chimera = Actor(
+	char="K",
+	color=(0, 127, 0),
+	name="Chimera",
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=25, base_defense=15, base_power=10),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=10),
+)
+
+automaton = Actor(
+	char="A",
+	color=(0, 127, 0),
+	name="Automaton", # -> could change name to Golem
+	ai_cls=HostileEnemy,
+	equipment=Equipment(),
+	fighter=Fighter(hp=1, base_defense=10, base_power=10),
+	inventory=Inventory(capacity=0),
+	level=Level(xp_given=10),
+)
+
+
+
+### Consumable Items: Healing and Damage
+wallmeat = Item(
+	char="p",
+	color=(127, 0, 225),
+	name="Pork Chop",
+	consumable=consumable.HealingConsumable(amount=5),
+	description="A mysterious meat that resembles pork and is seemingly perfectly preserved."
+	#description=Item_Descriptions.wallmeat, # -> putting all the item descriptions in another file to call upon for easy of management
 )
 
 health_potion = Item(
-	char="!",
+	char="h",
 	color=(127, 0, 225),
 	name="Health Potion",
-	consumable=consumable.HealingConsumable(amount=4),
+	consumable=consumable.HealingConsumable(amount=40),
 )
 
-lightning_scroll = Item(
-	char="~", 
+blood_vial = Item(
+	char="b",
+	color=(127, 0, 225),
+	name="Blood Vial",
+	consumable=consumable.HealingConsumable(amount=10),
+)
+
+
+garlic = Item(
+	char="g",
+	color=(200, 100, 255),
+	name="Garlic Bomb",
+	consumable=consumable.ConfusionConsumable(number_of_turns=5,),
+)
+
+protection_from_evil = Item(
+	char="&",
+	color=(200, 100, 255),
+	name="Chain Censer",
+	consumable=consumable.ConfusionConsumable(number_of_turns=5),
+)
+
+oak_stake = Item(
+	char="v", 
 	color=(255, 255, 0),
-	name="Lightning Scroll",
-	consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
+	name="Oak Stake",
+	consumable=consumable.LightningDamageConsumable(damage=5, maximum_range=5),
+	# consumable=consumable.DirectDamageConsumable(damage=10, maximum_range=5),
 )
 
-fireball_scroll = Item(
-	char="~", 
-	color=(255, 0, 0), 
-	name="Fireball Scroll", 
-	consumable=consumable.FireballDamageConsumable(damage=12, radius=3), 
+throwing_axe = Item(
+	char="p", 
+	color=(255, 255, 0),
+	name="Throwing Axe",
+	consumable=consumable.LightningDamageConsumable(damage=10, maximum_range=5),
+	# consumable=consumable.DirectDamageConsumable(damage=10, maximum_range=5),
 )
+
+combat_cross = Item(
+	char="+", 
+	color=(255, 255, 0),
+	name="Combat Cross",
+	consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
+	# consumable=consumable.DirectDamageConsumable(damage=10, maximum_range=5),
+)
+
+holy = Item(
+	char="0", 
+	color=(255, 0, 0), 
+	name="Orb of Antioch",
+	consumable=consumable.FireballDamageConsumable(damage=100, radius=5), 
+	# consumable=consumable.AreaDamageConsumable(damage=12, radius=3), 
+)
+
+# confusion_scroll = Item(
+# 	char="~",
+# 	color=(200, 100, 255),
+# 	name="Confusion Scroll",
+# 	consumable=consumable.ConfusionConsumable(number_of_turns=10),
+# )
+
+# lightning_scroll = Item(
+# 	char="~", 
+# 	color=(255, 255, 0),
+# 	name="Lightning Scroll",
+# 	consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
+# )
+
+# fireball_scroll = Item(
+# 	char="~", 
+# 	color=(255, 0, 0), 
+# 	name="Fireball Scroll", 
+# 	consumable=consumable.FireballDamageConsumable(damage=12, radius=3), 
+# )
 
 
 ### Weapons
@@ -88,11 +220,18 @@ dagger = Item(
 	equippable=equippable.Dagger(),
 )
 
-sword = Item(
+leather_whip = Item(
+	char="s",
+	color=(200, 100, 20),
+	name="Leather Whip",
+	equippable=equippable.LeatherWhip(),
+)
+
+arming_sword = Item(
 	char="/",
 	color=(0, 191, 255),
-	name="Sword",
-	equippable=equippable.Sword(),
+	name="Arming Sword",
+	equippable=equippable.ArmingSword(),
 )
 
 spear = Item(
@@ -102,42 +241,33 @@ spear = Item(
 	equippable=equippable.Spear(),
 )
 
-bec_de_corbin = Item(
-	char="+",
-	color=(0, 191, 255),
-	name="Bec De Corbin",
-	equippable=equippable.BecDeCorbin(),
-)
-
-dane_axe = Item(
+poleaxe = Item(
 	char="P",
 	color=(0, 191, 255),
-	name="Dane Axe",
-	equippable=equippable.DaneAxe(),
+	name="Poleaxe",
+	equippable=equippable.Poleaxe(),
 )
 
-quarter_staff = Item(
-	char="/",
-	color=(200, 100, 20),
-	name="Quarter Staff",
-	equippable=equippable.QuarterStaff(),
-)
-
-greatsword = Item(
-	char="/",
+battle_axe = Item(
+	char="P",
 	color=(0, 191, 255),
-	name="Great Sword",
-	equippable=equippable.Greatsword(),
+	name="Battle Axe",
+	equippable=equippable.BattleAxe(),
 )
 
-### Legedary Weapons
-# Sting, Excalibur, Moonlight, RuYi, Mjolnir, Reaper
- 
-sting = Item(
-	char="/",
+claymore = Item(
+	char="\\",
 	color=(0, 191, 255),
-	name="Sting",
-	equippable=equippable.Sting(),
+	name="Claymore",
+	equippable=equippable.Claymore(),
+)
+
+### Unique Weapons
+vampire_killer = Item(
+	char="s",
+	color=(128, 200, 255),
+	name="Vampire Killer",
+	equippable=equippable.VampireKiller(),
 )
 
 excalibur = Item(
@@ -147,22 +277,8 @@ excalibur = Item(
 	equippable=equippable.Excalibur(),
 )
 
-moonlight = Item(
-	char="/",
-	color=(0, 191, 255),
-	name="Moonlight Greatsword",
-	equippable=equippable.Moonlight(),
-)
-
-ruyi = Item(
-	char="|",
-	color=(255, 70, 70),
-	name="RuYi Staff",
-	equippable=equippable.RuYi(),
-)
-
 mjolnir = Item(
-	char="+",
+	char="j",
 	color=(0, 191, 255),
 	name="Mjolnir",
 	equippable=equippable.Mjolnir(),
@@ -190,18 +306,11 @@ gambeson = Item(
 	equippable=equippable.Gambeson(),
 )
 
-chain_mail = Item(
-	char="[",
-	color=(200, 245, 240),
-	name="Chain Mail",
-	equippable=equippable.ChainMail(),
-)
-
-plate_mail = Item(
+plate = Item(
 	char="[", 
 	color=(200, 255, 230),
-	name="Plate Mail",
-	equippable=equippable.PlateMail(),
+	name="Plate",
+	equippable=equippable.Plate(),
 )
 
 brigandine = Item(
@@ -211,13 +320,6 @@ brigandine = Item(
 	equippable=equippable.Brigandine(),
 )
 
-steel_plate = Item(
-	char="[", 
-	color=(200, 255, 230),
-	name="Steel Plate",
-	equippable=equippable.SteelPlate(),
-)
-
 leather_armor = Item(
 	char="[", 
 	color=(200, 100, 20),
@@ -225,3 +327,11 @@ leather_armor = Item(
 	equippable=equippable.LeatherArmor(),
 )
 
+### Unique Armor 
+
+hunter_garb = Item(
+	char="{",
+	color=(128, 200, 255),
+	name="Vampire Hunter's Armor",
+	equippable=equippable.HunterGarb(),
+)

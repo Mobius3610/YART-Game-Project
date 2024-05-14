@@ -36,19 +36,19 @@ max_monsters_by_floor = [
 
 item_chances: Dict[int, List[Tuple[Entity, int]]] = {
 	0: [(entity_factories.health_potion, 35), (entity_factories.leather_armor, 10),],
-	2: [(entity_factories.confusion_scroll, 10), (entity_factories.gambeson, 2), (entity_factories.quarter_staff, 5)],
-	4: [(entity_factories.lightning_scroll, 10), (entity_factories.sword, 5)], 
-	6: [(entity_factories.fireball_scroll,10), (entity_factories.chain_mail, 2), (entity_factories.spear, 5)],
-	8: [(entity_factories.plate_mail, 10), (entity_factories.bec_de_corbin, 5), (entity_factories.dane_axe, 5)],
-	10: [(entity_factories.brigandine, 10), (entity_factories.greatsword, 5)],
-	12: [(entity_factories.steel_plate, 10)],
+	2: [(entity_factories.garlic, 10), (entity_factories.gambeson, 2), (entity_factories.dagger, 5)],
+	4: [(entity_factories.oak_stake, 10), (entity_factories.blood_vial, 2), (entity_factories.arming_sword, 5)], 
+	6: [(entity_factories.holy,10), (entity_factories.brigandine, 2), (entity_factories.spear, 5)],
+	8: [(entity_factories.plate, 10), (entity_factories.poleaxe, 5), (entity_factories.battle_axe, 5)],
+	10: [(entity_factories.hunter_garb, 10), (entity_factories.claymore, 5)],
+	# 12: [(entity_factories.steel_plate, 10)],
 }
 
 enemy_chances: Dict[int, List[Tuple[Entity, int]]] = {
-	0: [(entity_factories.orc, 60)],
-	3: [(entity_factories.troll, 10),(entity_factories.orc, 30)],
-	5: [(entity_factories.troll, 30),(entity_factories.orc, 10)],
-	7: [(entity_factories.troll, 50),(entity_factories.orc, 0)],
+	0: [(entity_factories.corpse, 60)],
+	3: [(entity_factories.skeleton, 10),(entity_factories.corpse, 30)],
+	5: [(entity_factories.skeleton, 30),(entity_factories.corpse, 10)],
+	7: [(entity_factories.skeleton, 50),(entity_factories.corpse, 0)],
 }
 
 def get_max_value_for_floor(

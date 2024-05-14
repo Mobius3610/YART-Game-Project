@@ -139,6 +139,7 @@ class Item(Entity):
 		char: str = "?",
 		color: Tuple[int, int, int] = (255, 255, 255),
 		name: str = "<Unnamed>",
+		description: str = "<Unnamed>",
 		consumable: Optional[Consumable] = None,
 		equippable: Optional[Equippable] = None, 
 	):
