@@ -23,6 +23,7 @@ except:
 max_items_by_floor = [
 	(1,1),
 	(4,2),
+	(8,3),
 ]
 
 max_monsters_by_floor = [
@@ -35,11 +36,11 @@ max_monsters_by_floor = [
 ]
 
 item_chances: Dict[int, List[Tuple[Entity, int]]] = {
-	0: [(entity_factories.health_potion, 35), (entity_factories.leather_armor, 10),],
+	0: [(entity_factories.wallmeat, 35), (entity_factories.leather_armor, 5),],
 	2: [(entity_factories.garlic, 10), (entity_factories.gambeson, 2), (entity_factories.dagger, 5)],
 	4: [(entity_factories.oak_stake, 10), (entity_factories.blood_vial, 2), (entity_factories.arming_sword, 5)], 
 	6: [(entity_factories.holy,10), (entity_factories.brigandine, 2), (entity_factories.spear, 5)],
-	8: [(entity_factories.plate, 10), (entity_factories.poleaxe, 5), (entity_factories.battle_axe, 5)],
+	8: [(entity_factories.plate, 10), (entity_factories.poleaxe, 5), (entity_factories.battle_axe, 5), (entity_factories.health_potion, 10)],
 	10: [(entity_factories.hunter_garb, 10), (entity_factories.claymore, 5)],
 	# 12: [(entity_factories.steel_plate, 10)],
 }
