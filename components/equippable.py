@@ -97,7 +97,7 @@ class Tunic(Equippable):
 
 class Gambeson(Equippable):
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=4)
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=2)
 
 class Brigandine(Equippable):
 	def __init__(self) -> None: 
@@ -109,7 +109,7 @@ class Plate(Equippable):
 
 class LeatherArmor(Equippable): 
 	def __init__(self) -> None: 
-		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=2)
+		super().__init__(equipment_type=EquipmentType.ARMOR, defense_bonus=1)
 
 ### Unique Armor
 class HunterGarb(Equippable):

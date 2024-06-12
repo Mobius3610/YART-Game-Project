@@ -48,8 +48,9 @@ item_chances: Dict[int, List[Tuple[Entity, int]]] = {
 enemy_chances: Dict[int, List[Tuple[Entity, int]]] = {
 	0: [(entity_factories.corpse, 60)],
 	3: [(entity_factories.skeleton, 10),(entity_factories.corpse, 30)],
-	5: [(entity_factories.skeleton, 30),(entity_factories.corpse, 10)],
-	7: [(entity_factories.skeleton, 50),(entity_factories.corpse, 0)],
+	5: [(entity_factories.skeleton, 30),(entity_factories.ghoul, 40)],
+	7: [(entity_factories.ghoul, 50),(entity_factories.enchanted_armor, 10)],
+	9: [(entity_factories.cultist, 50),(entity_factories.enchanted_armor, 10), (entity_factories.lesser_vampire, 5)],
 }
 
 def get_max_value_for_floor(
