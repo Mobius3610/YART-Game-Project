@@ -18,13 +18,15 @@ from Item_Descriptions import description
 # orc = Entity(char="o", color=(63, 127, 63), name="Orc", blocks_movement=True)
 # troll = Entity(char="T", color=(0, 127, 0), name="Troll", blocks_movement=True)
 
+# Fighter definition: 	def __init__(self, hp: int, base_defense: int, base_power: int, base_to_hit: int, base_evasion: int,):
+
 player = Actor(
 	char="@",
 	color=(0, 0, 0),
 	name="Player",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=30, base_defense=0, base_power=5),
+	fighter=Fighter(hp=30, base_defense=0, base_power=5, base_to_hit=3, base_evasion=3), # Will want to impliment randomized base attributes to the player
 	inventory=Inventory(capacity=26),
 	level=Level(level_up_base=200),
 )
@@ -32,10 +34,10 @@ player = Actor(
 corpse = Actor(
 	char="C",
 	color=(85, 255, 125), #(63, 127, 63)
-	name="Rotting Corpse",
+	name="Fetid Corpse",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=5, base_defense=0, base_power=2),
+	fighter=Fighter(hp=5, base_defense=0, base_power=2, base_to_hit=1, base_evasion=5), # Might want to impliment randomized base attributes to all enemies.  
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=15),
 )
@@ -46,7 +48,7 @@ skeleton = Actor(
 	name="Skeleton",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=10, base_defense=1, base_power=3),
+	fighter=Fighter(hp=10, base_defense=1, base_power=3, base_to_hit=1, base_evasion=7),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=20),
 )
@@ -57,7 +59,7 @@ ghoul = Actor(
 	name="Unfortunate experiment", # might want to find a better name.
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=20, base_defense=5, base_power=4),
+	fighter=Fighter(hp=20, base_defense=1, base_power=4, base_to_hit=2, base_evasion=10),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=45),
 )
@@ -68,7 +70,7 @@ enchanted_armor = Actor(
 	name="Enchanted Armor",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=5, base_defense=10, base_power=3),
+	fighter=Fighter(hp=5, base_defense=10, base_power=3, base_to_hit=0, base_evasion=7),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=80),
 )
@@ -79,7 +81,7 @@ cultist = Actor(
 	name="Cultist",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=10, base_defense=8, base_power=10),
+	fighter=Fighter(hp=10, base_defense=8, base_power=10, base_to_hit=5, base_evasion=12),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=10),
 )
@@ -90,7 +92,7 @@ lesser_vampire = Actor(
 	name="Vampire bloodling",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=50, base_defense=10, base_power=10),
+	fighter=Fighter(hp=50, base_defense=10, base_power=10, base_to_hit=5, base_evasion=15),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=10),
 )
@@ -101,7 +103,7 @@ chimera = Actor(
 	name="Chimera",
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=25, base_defense=15, base_power=10),
+	fighter=Fighter(hp=25, base_defense=15, base_power=10, base_to_hit=8, base_evasion=18),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=10),
 )
@@ -112,7 +114,7 @@ automaton = Actor(
 	name="Automaton", # -> could change name to Golem
 	ai_cls=HostileEnemy,
 	equipment=Equipment(),
-	fighter=Fighter(hp=1, base_defense=10, base_power=10),
+	fighter=Fighter(hp=1, base_defense=10, base_power=10, base_to_hit=5, base_evasion=16),
 	inventory=Inventory(capacity=0),
 	level=Level(xp_given=10),
 )
@@ -186,7 +188,7 @@ holy = Item(
 	char="0", 
 	color=(255, 0, 0), 
 	name="Orb of Antioch",
-	consumable=consumable.FireballDamageConsumable(damage=100, radius=5), 
+	consumable=consumable.FireballDamageConsumable(damage=100, radius=3), 
 	# consumable=consumable.AreaDamageConsumable(damage=12, radius=3), 
 )
 

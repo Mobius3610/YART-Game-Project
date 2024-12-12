@@ -8,6 +8,7 @@ try:
 	from typing import Optional, Tuple, TYPE_CHECKING
 	import color
 	import exceptions
+	import random
 
 	from colorama import Fore, Back, Style
 except:
@@ -108,6 +109,27 @@ class ActionWithDirection(Action):
 	def perform(self) -> None:
 		raise NotImplementedError()
 
+# class MeleeAction(ActionWithDirection):
+# 	def perform(self) -> None:
+# 		target = self.target_actor
+		
+# 		if not target:
+# 			raise exceptions.Impossible("Nothing to attack")
+
+# 		damage = self.entity.fighter.power - target.fighter.defense
+
+# 		attack_desc = f"{self.entity.name.capitalize()} attacks {target.name}"
+
+# 		if self.entity is self.engine.player:
+# 			attack_color = color.player_atk
+# 		else: 
+# 			attack_color = color.enemy_atk
+		
+# 		if damage > 0:
+# 			self.engine.message_log.add_message(f"{attack_desc} for {damage} hit points.", attack_color)
+# 			target.fighter.hp -= damage
+# 		else:
+# 			self.engine.message_log.add_message(f"{attack_desc} but does no damage.", attack_color)
 class MeleeAction(ActionWithDirection):
 	def perform(self) -> None:
 		target = self.target_actor
@@ -124,7 +146,7 @@ class MeleeAction(ActionWithDirection):
 		else: 
 			attack_color = color.enemy_atk
 		
-		if damage > 0:
+		if (damage > 0) and (random.randrange(0,21) + self.entity.fighter.total_hit_bonus >= target.fighter.total_evasion_bonus):
 			self.engine.message_log.add_message(f"{attack_desc} for {damage} hit points.", attack_color)
 			target.fighter.hp -= damage
 		else:
